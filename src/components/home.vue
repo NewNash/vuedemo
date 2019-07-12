@@ -2,7 +2,6 @@
     <div class="app-container" @scroll='test'>
         <headerComponent></headerComponent>
         <mainComponent :type="type"></mainComponent>
-        
        <footerComponent ></footerComponent>
     </div>
 </template>

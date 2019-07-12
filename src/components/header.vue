@@ -66,6 +66,7 @@ export default {
                         height: 60px;
                         line-height: 60px;
                         padding: 0 10px;
+                        font-size: 16px;
                     }
                     a:hover{
                       color:#bbb;

@@ -7,12 +7,13 @@
                 <commentComponent></commentComponent>
             </div>
             <div class="rightbar">
-              <div class="rightbarBox">
+              <div :class="{rightbarBox:tagFixed}">
                 <tagComponent></tagComponent>
                 <latestArticleComponent></latestArticleComponent>
                 <relatedComponent></relatedComponent>
-              </div>
 
+              </div>
+                <topArrowComponent v-if="tagFixed"></topArrowComponent>
             </div>
         </section>
         <footerComponent></footerComponent>
@@ -27,7 +28,12 @@ import commentComponent from './comment.vue'
 import tagComponent from '../rightbar/tag.vue'
 import latestArticleComponent from '../rightbar/latestArticle.vue'
 import relatedComponent from './related.vue'
+import topArrowComponent from '../rightbar/toparrow.vue'
 export default {
+    data:()=>({
+        topArrowSwitch:false,
+        tagFixed:false
+    }),
     components:{
         headerComponent,
         rightbarComponent,
@@ -36,20 +42,27 @@ export default {
         commentComponent,
         tagComponent,
         latestArticleComponent,
-        relatedComponent
+        relatedComponent,
+        topArrowComponent
     },
     mounted() {
-      //do something after mounting vue instance
-
+        window.addEventListener('scroll',this.showTopArrow)
     },
     methods: {
-      methodName() {
-
-      }
+        showTopArrow() {
+            const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+            if(scrollTop>100){
+                this.topArrowSwitch = true;
+                this.tagFixed = true;
+            }
+            else{
+                this.topArrowSwitch = false;
+                this.tagFixed = false;
+            }
+        }
     },
     destroyed() {
-      //do something after destroying vue instance
-
+        window.removeEventListener('scroll', this.showTopArrow)
     }
 }
 </script>
@@ -73,6 +86,7 @@ export default {
           // border: 1px solid red;
           .rightbarBox{
             position: fixed;
+              top: 10px;
           }
           //
         }
