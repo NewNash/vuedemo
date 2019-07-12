@@ -29,7 +29,6 @@ export default {
       contents:[]
   }),
   created() {
-    //do something after creating vue instance
     this.getData()
   },
   methods: {

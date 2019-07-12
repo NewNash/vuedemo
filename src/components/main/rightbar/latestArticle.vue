@@ -19,7 +19,6 @@ export default {
     articles:[]
   }),
   created() {
-    //do something after creating vue instance
     this.getArticle()
   },
   methods: {

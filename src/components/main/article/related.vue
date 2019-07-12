@@ -32,8 +32,6 @@ export default {
         this.contents = result.body
       })
       })
-      // console.log(this.tags)
-
     }
   }
 }

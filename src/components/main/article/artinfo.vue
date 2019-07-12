@@ -19,11 +19,6 @@
                 <v-icon name="eye" scale="0.7"/>
 
             </span>
-            <!-- <span class="good">
-                   点赞
-                <v-icon name="thumbs-up" scale="0.7"/>
-
-            </span> -->
         </div>
         <p class="content" v-html="content.content" v-highlight>
         </p>
